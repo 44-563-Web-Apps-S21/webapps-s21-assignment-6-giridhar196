@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Hidden things by Giridhar Addagalla</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+
+        <h2>Getting input</h2>
+
+        <div class="continer">
+            <div class="row">
+                <div class="col-md-8">
+                    <form>
+                        <div class="form-group row">
+                            <label for="statichiddenword" class="col-md-3
+                                col-form-label">What is your nickname: </label>
+                            <div class="col-md-9">
+                                <input type="password" class="form-control"
+                                    placeholder="Enter the
+                                    secret word" id="hiddenword"
+                                    value="Secret">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="guess" class="col-md-3
+                                col-form-label">Enter a guess: </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control"
+                                    placeholder="Enter a guess" required
+                                    id="guess">
+                            </div>
+
+                        </div>
+                        <button type="click" onclick="processGuess()" class="btn
+                            btn-primary">
+                            Check the guess</button>
+                    </form>
+                    <p>Correct: <span id="correct">0</span></p>
+                    <p>Wrong: <span id="wrong">0</span></p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        var correct = 0,
+            wrong = 0;
+
+        function processGuess() {
+            var secretWord = document.getElementById("hiddenword").value;
+            var guessWord = document.getElementById("guess").value;
+            if (secretWord == guessWord) {
+                alert("Congratulations");
+                correct = correct + 1;
+                document.getElementById("correct").innerHTML = correct;
+            } else {
+                alert("Sorry");
+                wrong = wrong + 1;
+                document.getElementById("wrong").innerHTML = wrong;
+            }
+        }
+    </script>
+    </body>
+
+</html>
