@@ -46,8 +46,7 @@
                             btn-primary">
                             Check the guess</button>
                     </form>
-                    <p>Correct: <span id="correct">0</span></p>
-                    <p>Wrong: <span id="wrong">0</span></p>
+                    <p id="display_Result"></p>
                 </div>
             </div>
         </div>
@@ -73,6 +72,8 @@
                 wrong = wrong + 1;
                 document.getElementById("wrong").innerHTML = wrong;
             }
+            var displayresult = "correct: " + correct + " " + "wrong: " + wrong;
+            document.getElementById("display_Result").innerHTML = displayresult;
         }
         var currentImage = 0;
 
