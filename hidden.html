@@ -29,8 +29,7 @@
                             <div class="col-md-9">
                                 <input type="password" class="form-control"
                                     placeholder="Enter the
-                                    secret word" id="hiddenword"
-                                    value="Secret">
+                                    secret word" id="hiddenword" value="Secret">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -52,7 +51,12 @@
                 </div>
             </div>
         </div>
-
+        <div id="container">
+            <img id="myPlant" src="./images/Achimenes.jpg" alt="connection
+                error"
+                width="200" height="200"
+                onclick="rotateImage()">
+        </div>
         <script>
         var correct = 0,
             wrong = 0;
@@ -68,6 +72,27 @@
                 alert("Sorry");
                 wrong = wrong + 1;
                 document.getElementById("wrong").innerHTML = wrong;
+            }
+        }
+        var currentImage = 0;
+
+        function rotateImage() {
+            switch (currentImage) {
+                case 0:
+                    currentImage = currentImage + 1;
+                    document.getElementById("myPlant").src = "./images/Achimenes.jpg"
+                    break;
+                case 1:
+                    currentImage += 1;
+                    document.getElementById("myPlant").src = "./images/Aechmea.jpg"
+                    break;
+                case 2:
+                    currentImage += 1;
+                    document.getElementById("myPlant").src = "./images/Agave.jpg"
+                    break;
+                default:
+                    currentImage = 0
+                    document.getElementById("myPlant").src = "./images/Aechmea.jpg"
             }
         }
     </script>
