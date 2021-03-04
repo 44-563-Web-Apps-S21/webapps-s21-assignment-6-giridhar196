@@ -29,7 +29,8 @@
                             <div class="col-md-9">
                                 <input type="password" class="form-control"
                                     placeholder="Enter the
-                                    secret word" id="hiddenword" value="Secret">
+                                    secret word" id="form1_password"
+                                    value="Secret">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -38,42 +39,44 @@
                             <div class="col-sm-9">
                                 <input type="text" class="form-control"
                                     placeholder="Enter a guess" required
-                                    id="guess">
+                                    id="form1_guess">
                             </div>
 
                         </div>
-                        <input type="button" onclick="processGuess()" class="btn
-                            btn-primary">
-                            Check the guess</button>
+                        <input class="btn-success" type="button"
+                            onclick="processGuess()" value="Check the guess">
                     </form>
-                    <p id="display_Result"></p>
+                    <div class="col-md-12">
+                        <p class="text-success" id="result">This text will be
+                            replaced </p>
+                    </div>
                 </div>
             </div>
         </div>
         <div id="container">
             <img id="myPlant" src="./images/Achimenes.jpg" alt="connection
-                error"
-                width="200" height="200"
-                onclick="rotateImage()">
+                error" width="200" height="200" onclick="rotateImage()">
         </div>
         <script>
-        var correct = 0,
-            wrong = 0;
+        let correct = 0;
+        let wrong = 0;
 
         function processGuess() {
-            var secretWord = document.getElementById("hiddenword").value;
-            var guessWord = document.getElementById("guess").value;
-            if (secretWord == guessWord) {
-                alert("Congratulations");
-                correct = correct + 1;
-                document.getElementById("correct").innerHTML = correct;
+            console.log("Getting form values")
+            password = document.getElementById("form1_password").value
+            guess = document.getElementById("form1_guess").value
+            // confirmed = confirm("Are these the values? "+password+" and "+guess)
+
+            out = document.getElementById("result")
+            if (password == guess) {
+                alert("Congratulation")
+                correct = correct + 1
+                out.innerHTML = "correct : " + correct + " " + "wrong : " + wrong
             } else {
-                alert("Sorry");
-                wrong = wrong + 1;
-                document.getElementById("wrong").innerHTML = wrong;
+                alert("Sorry")
+                wrong = wrong + 1
+                out.innerHTML = "correct : " + correct + " " + "wrong : " + wrong
             }
-            var displayresult = "correct: " + correct + " " + "wrong: " + wrong;
-            document.getElementById("display_Result").innerHTML = displayresult;
         }
         var currentImage = 0;
 
