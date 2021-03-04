@@ -17,45 +17,54 @@
 
     <body>
 
-        <h2>Getting input</h2>
 
-        <div class="continer">
+        <div class="continer-fluid">
             <div class="row">
-                <div class="col-md-8">
-                    <form>
-                        <div class="form-group row">
-                            <label for="statichiddenword" class="col-md-3
-                                col-form-label">What is your nickname: </label>
-                            <div class="col-md-9">
-                                <input type="password" class="form-control"
-                                    placeholder="Enter the
-                                    secret word" id="form1_password"
-                                    value="Secret">
+                <div class="col-md-12">
+                    <h2>Getting input</h2>
+                    <div class="col-md-8">
+                        <form>
+                            <div class="form-group row">
+                                <label for="statichiddenword" class="col-md-3
+                                    col-form-label">What is your nickname:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="password" class="form-control"
+                                        placeholder="Enter the
+                                        secret word" id="form1_password"
+                                        value="Secret">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="guess" class="col-md-3
-                                col-form-label">Enter a guess: </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control"
-                                    placeholder="Enter a guess" required
-                                    id="form1_guess">
-                            </div>
+                            <div class="form-group row">
+                                <label for="guess" class="col-md-3
+                                    col-form-label">Enter a guess: </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control"
+                                        placeholder="Enter a guess" required
+                                        id="form1_guess">
+                                </div>
 
-                        </div>
-                        <input class="btn-success" type="button"
-                            onclick="processGuess()" value="Check the guess">
-                    </form>
-                    <div class="col-md-12">
-                        <p class="text-success" id="result">This text will be
-                            replaced </p>
+                            </div>
+                            <input class="btn-success" type="button"
+                                onclick="processGuess()"
+                                value="Check the guess">
+                            <p class="text-success" id="result">This text will
+                                be
+                                replaced </p>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
         <div id="container">
-            <img id="myPlant" src="./images/Achimenes.jpg" alt="connection
-                error" width="200" height="200" onclick="rotateImage()">
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <img id="myPlant" src="./images/Achimenes.jpg"
+                        alt="connection
+                        error" width="200" height="200" onclick="rotateImage()">
+                </div>
+            </div>
+
         </div>
         <script>
         let correct = 0;
