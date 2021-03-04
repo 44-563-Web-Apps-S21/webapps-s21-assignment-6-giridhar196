@@ -1,107 +1,110 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <title>
-    computes Arthmetics
-  </title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
+  <head>
+    <title>
+      computes Arthmetics
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
 
-<body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12 col-lg-12 pt-4">
-        <div class="col-md-12 col-lg-12">
-          <h2>Computes</h2>
-          <form>
-            <div class="form-group">
-              <p>Enter a number: </p>
-              <input type="number" id="number" class="form-control" value="10" placeholder="First Value">
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 col-lg-12 pt-4">
+          <div class="col-md-12 col-lg-12">
+            <h2>Computes</h2>
+            <form>
+              <div class="form-group">
+                <p>Enter a number: </p>
+                <input type="number" id="first_num" class="form-control"
+                  value="10" placeholder="First Value">
+              </div>
+              <div class="form-group">
+                <p>Enter a number:</p>
+                <input type="number" class="form-control" id="Second_num"
+                  value="2" placeholder="Second Value">
+              </div>
+              <div class="form-group">
+                <input type="button" class="btn btn-primary btn-md"
+                  onclick="permutations()" value="Compute">
+              </div>
+              <div class="form-group">
+                <p class="text-warning" id="result">This text will be replaced
+                </p>
+              </div>
+            </form>
+            <div class="col-md-12 pt-3">
+              <div class="form-group">
+                <input type="radio" id="add" name="arith_oper"
+                  onclick="processRadio()">
+                <label for="add">+</label>
+              </div>
+              <div class="form-group">
+                <input type="radio" id="minus" name="arith_oper"
+                  onclick="processRadio()">
+                <label for="minus">-</label>
+              </div>
+              <div class="form-group">
+                <input type="radio" id="multiply" name="arith_oper"
+                  onclick="processRadio()">
+                <label for="multiply">*</label>
+              </div>
+              <div class="form-group">
+                <input type="radio" id="devide" name="arith_oper"
+                  onclick="processRadio()">
+                <label for="devide">/</label>
+              </div>
             </div>
-            <div class="form-group">
-              <p>Enter a number:</p>
-              <input type="number" class="form-control" id="number_2" value="2" placeholder="Second Value">
-            </div>
-            <div class="form-group">
-              <button class="btn btn-primary btn-md" onclick="permutations()">Compute</button>
-            </div>
-          </form>
+            <p class="text-danger" id="res">Results of Radio buttons will be
+              shown here</p>
+          </div>
         </div>
+
       </div>
+
     </div>
-  </div>
-
-  <h2>Getting input with radio buttons and checkboxes</h2>
-
-  <form>
-
-    <input type="radio" id="rg1_red" name="color" value="red" checked>
-    <label for="rg1_red">Red</label></br>
-
-    <input type="radio" id="rg1_blue" name="color" value="blue">
-    <label for="rg1_blue">Blue</label></br>
-
-    <input type="radio" id="rg1_green" name="color" value="green">
-    <label for="rg1_green">Green</label></br>
-
-    <input type="button" onclick="resolveRadio()" value="Get values from radio group">
-  </form>
-
-  <form>
-    <input type="checkbox" id="cb1_cheese" name="topping1" value="cheese" checked>
-    <label for="cb1_cheese">I want cheese</label></br>
-
-    <input type="checkbox" id="cb1_olive" name="topping2" value="olive">
-    <label for="cb1_olive">I want olives</label></br>
-
-    <input type="checkbox" id="cb1_onion" name="topping3" value="onion" checked>
-    <label for="cb1_onion">I want onions</label></br>
-
-    <input type="button" onclick="resolveCheck()" value="Get values from check boxes">
-  </form>
-
-
-
-  <p id="result">This text will be replaced </p>
-
-  <script>
-    function resolveCheck() {
-      console.log("Getting input")
-      cheese = document.getElementById("cb1_cheese").checked
-      olives = document.getElementById("cb1_olive").checked
-      onions = document.getElementById("cb1_onion").checked
-      confirmed = confirm("Are these the values? " + cheese + " and " + olives + " and " + onions)
-
-      out = document.getElementById("result")
-      if (confirmed) {
-        out.innerHTML = "Values were confirmed"
-      } else {
-        out.innerHTML = "Values were not confirmed"
+    <script>
+    function permutations() {
+      num1 = document.getElementById("first_num").value
+      num2 = document.getElementById("Second_num").value
+      let product = 1
+      for (first = num1; first >= (num1 - num2 + 1); first--) {
+        product = product * first
       }
+      document.getElementById("result").innerHTML = num1 + " permute " + num2 + " should be " + product;
     }
-
-    function resolveRadio() {
-      console.log("Getting input")
-      redOpt = document.getElementById("rg1_red").checked
-      blueOpt = document.getElementById("rg1_blue").checked
-      greenOpt = document.getElementById("rg1_green").checked
-      confirmed = confirm("Are these the values? " + redOpt + " and " + blueOpt + " and " + greenOpt)
-
-      out = document.getElementById("result")
-      if (confirmed) {
-        out.innerHTML = "Values were confirmed"
-      } else {
-        out.innerHTML = "Values were not confirmed"
+    // radio process
+    function processRadio() {
+      num1 = document.getElementById("first_num").value
+      num2 = document.getElementById("Second_num").value
+      result = 0
+      text = ""
+      if (document.getElementById("add").checked == true) {
+        result = +num1 + +num2
+        text = "Sum of " + num1 + " and " + num2 + " is " + result
+      } else if (document.getElementById("minus").checked == true) {
+        result = num1 - num2
+        text = "Difference of " + num1 + " and " + num2 + " is " + result
+      } else if (document.getElementById("multiply").checked == true) {
+        result = num1 * num2
+        text = "Product of " + num1 + " and " + num2 + " is " + result
+      } else if (document.getElementById("devide").checked = true) {
+        result = num1 / num2
+        text = "Division of " + num1 + " and " + num2 + " is " + result
       }
+      document.getElementById("res").innerHTML = text
     }
   </script>
-
-</body>
+  </body>
 
 </html>
